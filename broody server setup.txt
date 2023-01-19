@@ -1,8 +1,0 @@
-Plz dont share it fisrt
-
-
-run these other commands on your instance
-
-sudo apt-get install python-pip
-
-pip install pytz

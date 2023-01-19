@@ -8,7 +8,7 @@ from datetime import datetime
 from settings import *
 correctAnswer = None
 answeredBy = None
-bankfile = bs.getEnvironment()['systemScriptsDirectory'] + '/bank.json'
+bankfile = bs.getEnvironment()['userScriptsDirectory'] + '/bank.json'
 
 
 def checkExpiredItems():
@@ -25,10 +25,10 @@ def checkExpiredItems():
             break
 
     if flag == 1:
-        with open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
+        with open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
             s = [ row for row in file ]
             s[4] = 'effectCustomers = ' + str(customers) + '\n'
-            f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
+            f = open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
             for i in s:
                 f.write(i)
 
