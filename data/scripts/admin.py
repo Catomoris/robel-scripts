@@ -17,6 +17,55 @@ from bsSpaz import _BombDiedMessage,_CurseExplodeMessage,_PickupMessage,_PunchHi
 import settings
 
 
+
+# random tag phrasses effect
+# by sempai :3
+class Phrasess(object):
+    def __init__(self,
+                 position=(0, 1.88, 0),
+                 owner=None,
+                 custom=None):
+        self.position=position
+        self.owner=owner
+        self.custom=custom
+
+        self._phrasetimer=bs.Timer(99, bs.Call(self.update_text), repeat=True)
+
+
+        m = bs.newNode('math',
+            owner=self.owner,
+            attrs={
+                'input1': self.position,
+                'operation': 'add'
+        })
+        self.owner.connectAttr('position', m, 'input2')
+        self._powText = bs.newNode('text',
+                                   owner=self.owner,
+                                   attrs={
+                                       'text': '',
+                                       'inWorld': True,
+                                       'shadow': 1.0,
+                                       'flatness': 1.0,
+                                       'color': 
+                                       (random.random()*3,
+                                        random.random()*3,
+                                        random.random()*3),
+                                       'scale': 0.01,
+                                       'hAlign': 'center'
+                                   })
+        m.connectAttr('output', self._powText, 'position')
+        bs.animate(self._powText, 'opacity', {0:1.0, 500:0.5, 1000:0.0},loop=True)
+
+    def random_phrase(self):
+        return random.choice(self.custom)
+    def update_text(self):
+        if self._powText.exists() and self.owner.exists():
+            self._powText.text = self.random_phrase()
+        else:
+            self._phrasetimer = None
+
+
+
 class PermissionEffect(object):
     def __init__(self, position=(0, 1, 0), owner=None, prefix='ADMIN', prefixColor=(1, 1, 1),
                  prefixAnim=None, prefixAnimate=True,type = 1):
@@ -294,10 +343,12 @@ class Enhancement(bs.Actor):
 			    tag = getTag(1)
 			    if tag == '0': tag = u'\ue048O|W|N|E|R\ue048'
 			    PermissionEffect(owner = spaz.node,prefix = tag,prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
+                Phrasess(owner = spaz.node, custom=settings.tagOwnerPhrasses)
                 elif cl_str in gph.adminHashes:
 			    tag = getTag(1)
 			    if tag == '0': tag = u'\ue04cA.D.M.I.N\ue04c'
 			    PermissionEffect(owner = spaz.node,prefix = tag,prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
+                Phrasess(owner = spaz.node, custom=settings.tagAdminPhrasses)
                 elif cl_str in gph.vipHashes:	
 			    tag = getTag(1)
 			    if tag == '0': tag = u'[V.I.P+]'

@@ -3,6 +3,20 @@ enableTop5effects = True
 enableTop5commands = True
 enableCoinSystem = True
 
+# coloca aqui tus frases
+# :)
+tagOwnerPhrasses = [
+   'Hi', 'Hola', 'i', 'Love',
+   'Bro', 'Bullet', 'Fuck', 'Deamm',
+   'Boo', 'Boomer', ':v', 'UwU'
+]
+
+tagAdminPhrasses = [
+   'Cry', 'Devil', 'Sad',
+   'XD', 'Heart', 'Hurt',
+   'Creampie', 'Cumming'
+]
+
 texts = ['']
 
 questionDelay = 120 #seconds
