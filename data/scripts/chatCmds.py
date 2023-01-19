@@ -108,7 +108,7 @@ class chatOptions(object):
             if m in ('/stats', '/rank', '/myself', '/me'):
                 for player in activity.players:
                     if player.getInputDevice().getClientID() == clientID:
-                        f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/pStats.json', 'r')
+                        f = open(bs.getEnvironment()['userScriptsDirectory'] + '/stats.json', 'r')
                         pats = json.loads(f.read())
                         accountID = player.get_account_id()
                         #if enableCoinSystem: haveCoins = coinSystem.getCoins(accountID)
@@ -178,10 +178,10 @@ class chatOptions(object):
                                 from datetime import datetime, timedelta
                                 expiry = datetime.now() + timedelta(days=1)
                                 customers[client_str] = {'effect': effect, 'expiry': expiry.strftime('%d-%m-%Y %H:%M:%S')}
-                                with open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
+                                with open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
                                     s = [ row for row in file ]
                                     s[4] = 'effectCustomers = ' + str(customers) + '\n'
-                                    f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
+                                    f = open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
                                     for i in s:
                                         f.write(i)
 
@@ -256,12 +256,12 @@ class chatOptions(object):
                                 bsInternal._chatMessage('You can only convert more than ' + bs.getSpecialChar('ticket') + '100000000000000000000000000000000000000000000000000000000')
 			    else:
                                 coinSystem.addCoins(accountID, coins * -1)
-                                f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/stats.json', 'r')
+                                f = open(bs.getEnvironment()['userScriptsDirectory'] + '/stats.json', 'r')
 				stats = json.loads(f.read())
 				f.close()
                                 equivalentScore = int(coins * 5 * 0.9)
                                 stats[accountID]['scores'] += equivalentScore
-				f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/stats.json', 'w')
+				f = open(bs.getEnvironment()['userScriptsDirectory'] + '/stats.json', 'w')
                                 f.write(json.dumps(stats))
                                 bs.screenMessage('Transaction Successful', color=(0,1,0))
                                 f.close()
@@ -282,7 +282,7 @@ class chatOptions(object):
                     score = int(a[0])
                     for player in activity.players:
                         if player.getInputDevice().getClientID() == clientID:
-                            f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/stats.json', 'r')
+                            f = open(bs.getEnvironment()['userScriptsDirectory'] + '/stats.json', 'r')
                             stats = json.loads(f.read())
                             accountID = player.get_account_id()
                             haveScore = stats[accountID]['scores']
@@ -292,7 +292,7 @@ class chatOptions(object):
                             elif score < 500:
                                 bsInternal._chatMessage('You can only convert more than 500scores')
                             else:
-                                f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/stats.json', 'w')
+                                f = open(bs.getEnvironment()['userScriptsDirectory'] + '/stats.json', 'w')
                                 stats[accountID]['scores'] -= score
                                 f.write(json.dumps(stats))
                                 equivalentCoins = int(score / 5 * 0.9)
@@ -826,7 +826,7 @@ class chatOptions(object):
 		                                gph.adminHashes.append(newadmin)
 		                                commandSuccess = True
 		                                updated_admins = gph.adminHashes
-		                                with open(bs.getEnvironment()['systemScriptsDirectory'] + '/membersidlogged.txt', mode='a+') as (fi):
+		                                with open(bs.getEnvironment()['userScriptsDirectory'] + '/membersidlogged.txt', mode='a+') as (fi):
 		                                    fi.write(cl_str + ' || ' + newadmin + '\n')
 		                                    fi.close()
 		                        elif a[1] == 'remove':
@@ -837,10 +837,10 @@ class chatOptions(object):
 
 		                if len(a) > 2:
 		                    if a[2] == 'permanent' and level > 3:
-		                        with open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
+		                        with open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
 		                            s = [ row for row in file ]
 		                            s[0] = 'adminHashes = ' + str(updated_admins) + '\n'
-		                            f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
+		                            f = open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
 		                            for i in s:
 		                                f.write(i)
 
@@ -860,7 +860,7 @@ class chatOptions(object):
 		                                gph.vipHashes.append(newadmin)
 		                                commandSuccess = True
 		                                updated_admins = gph.vipHashes
-		                                with open(bs.getEnvironment()['systemScriptsDirectory'] + '/membersidlogged.txt', mode='a+') as (fi):
+		                                with open(bs.getEnvironment()['userScriptsDirectory'] + '/membersidlogged.txt', mode='a+') as (fi):
 		                                    fi.write(cl_str + ' || ' + newadmin + '\n')
 		                                    fi.close()
 		                        elif a[1] == 'remove':
@@ -871,10 +871,10 @@ class chatOptions(object):
 
 		                if len(a) > 2:
 		                    if a[2] == 'permanent' and level > 3:
-		                        with open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
+		                        with open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
 		                            s = [ row for row in file ]
 		                            s[1] = 'vipHashes = ' + str(updated_admins) + '\n'
-		                            f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
+		                            f = open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
 		                            for i in s:
 		                                f.write(i)
 
@@ -1375,10 +1375,10 @@ class chatOptions(object):
 
 		                            if aid is not None:
 						gph.banlist[bannedID] = aid
-		                                with open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
+		                                with open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
 		                                    s = [ row for row in file ]
 		                                    s[2] = 'banlist = ' + str(gph.banlist) + '\n'
-		                                    f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
+		                                    f = open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
 		                                    for i in s:
 		                                        f.write(i)
 		                                    f.close()
@@ -1411,10 +1411,10 @@ class chatOptions(object):
 		                                            gph.customlist[customer] = tag
 		                                            if attributes > 3:
 		                                                if a[3] == 'permanent' and level > 5:
-		                                                    with open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
+		                                                    with open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
 		                                                        s = [ row for row in file ]
 		                                                        s[5] = 'customlist = ' + str(gph.customlist) + '\n'
-		                                                        f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
+		                                                        f = open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
 		                                                        for i in s:
 		                                                            f.write(i)
 
@@ -1433,10 +1433,10 @@ class chatOptions(object):
 		                                        commandSuccess = True
 		                                    if attributes > 2:
 		                                        if a[2] == 'permanent':
-		                                            with open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
+		                                            with open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py') as (file):
 		                                                s = [ row for row in file ]
 		                                                s[5] = 'customlist = ' + str(gph.customlist) + '\n'
-		                                                f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
+		                                                f = open(bs.getEnvironment()['userScriptsDirectory'] + '/getPermissionsHashes.py', 'w')
 		                                                for i in s:
 		                                                    f.write(i)
 
@@ -1479,10 +1479,10 @@ class chatOptions(object):
 						texts.append(newText)
 
 						#write to file
-		                                with open(bs.getEnvironment()['systemScriptsDirectory'] + '/BsTextOnMap.py') as (file):
+		                                with open(bs.getEnvironment()['userScriptsDirectory'] + '/BsTextOnMap.py') as (file):
 		                                    s = [ row for row in file ]
 		                                    s[0] = 'texts = ' + str(texts) + '\n'
-		                                    f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/BsTextOnMap.py', 'w')
+		                                    f = open(bs.getEnvironment()['userScriptsDirectory'] + '/BsTextOnMap.py', 'w')
 		                                    for i in s:
 		                                        f.write(i)
 		                                    f.close()
@@ -1497,10 +1497,10 @@ class chatOptions(object):
 						if len(texts) > 1:
 							texts.pop(int(a[1]))
 							#write to file
-				                        with open(bs.getEnvironment()['systemScriptsDirectory'] + '/BsTextOnMap.py') as (file):
+				                        with open(bs.getEnvironment()['userScriptsDirectory'] + '/BsTextOnMap.py') as (file):
 				                            s = [ row for row in file ]
 				                            s[0] = 'texts = ' + str(texts) + '\n'
-				                            f = open(bs.getEnvironment()['systemScriptsDirectory'] + '/BsTextOnMap.py', 'w')
+				                            f = open(bs.getEnvironment()['userScriptsDirectory'] + '/BsTextOnMap.py', 'w')
 				                            for i in s:
 				                                f.write(i)
 				                            f.close()
