@@ -253,149 +253,149 @@ class Enhancement(bs.Actor):
         self._hasDead = False
         self.light = None
 
-	flag = 0
+    flag = 0
         profiles = []
         profiles = self.sourcePlayer.getInputDevice()._getPlayerProfiles()  
 
 
-	cl_str = self.sourcePlayer.get_account_id()
-	clID = self.sourcePlayer.getInputDevice().getClientID()
-	#print cl_str, clID
+    cl_str = self.sourcePlayer.get_account_id()
+    clID = self.sourcePlayer.getInputDevice().getClientID()
+    #print cl_str, clID
 
         if profiles == [] or profiles == {}:
             profiles = bs.getConfig()['Player Profiles']
 
-	def getTag(*args):
-		  #if alreadyHasTag: return True
-		  #profiles = self._player.getInputDevice()._getPlayerProfiles()
-		  for p in profiles:
-		    if '/tag' in p:
-		     try:
-			      tag = p.split(' ')[1]
-			      if '\\' in tag:
-				#print tag + ' before'
-				tag =tag.replace('\d','\ue048'.decode('unicode-escape'))
-				tag =tag.replace('\c','\ue043'.decode('unicode-escape'))
-				tag =tag.replace('\h','\ue049'.decode('unicode-escape'))
-				tag =tag.replace('\s','\ue046'.decode('unicode-escape'))
-				tag =tag.replace('\\n','\ue04b'.decode('unicode-escape'))
-				tag =tag.replace('\\f','\ue04f'.decode('unicode-escape'))
-			      	#print tag + ' after'		
-			      return tag
-		     except:
-			pass   
-		  return '0'
+    def getTag(*args):
+          #if alreadyHasTag: return True
+          #profiles = self._player.getInputDevice()._getPlayerProfiles()
+          for p in profiles:
+            if '/tag' in p:
+             try:
+                  tag = p.split(' ')[1]
+                  if '\\' in tag:
+                #print tag + ' before'
+                tag =tag.replace('\d','\ue048'.decode('unicode-escape'))
+                tag =tag.replace('\c','\ue043'.decode('unicode-escape'))
+                tag =tag.replace('\h','\ue049'.decode('unicode-escape'))
+                tag =tag.replace('\s','\ue046'.decode('unicode-escape'))
+                tag =tag.replace('\\n','\ue04b'.decode('unicode-escape'))
+                tag =tag.replace('\\f','\ue04f'.decode('unicode-escape'))
+                    #print tag + ' after'       
+                  return tag
+             except:
+            pass   
+          return '0'
 
         try:
-		if cl_str in gph.effectCustomers:
-			effect = gph.effectCustomers[cl_str]["effect"]
-			if effect == 'ice':
-				self.snowTimer = bs.Timer(500, bs.WeakCall(self.emitIce), repeat=True)
-			elif effect == 'sweat':
-				self.smokeTimer = bs.Timer(40, bs.WeakCall(self.emitSmoke), repeat=True)
-			elif effect == 'scorch':
-				self.scorchTimer = bs.Timer(500, bs.WeakCall(self.update_Scorch), repeat=True)
-			elif effect == 'glow':
-				self.addLightColor((1, 0.6, 0.4));self.checkDeadTimer = bs.Timer(150, bs.WeakCall(self.checkPlayerifDead), repeat=True)
-			elif effect == 'distortion':
-				self.DistortionTimer = bs.Timer(1000, bs.WeakCall(self.emitDistortion), repeat=True)
-			elif effect == 'slime':
-				self.slimeTimer = bs.Timer(250, bs.WeakCall(self.emitSlime), repeat=True)
-			elif effect == 'metal':
-				self.metalTimer = bs.Timer(500, bs.WeakCall(self.emitMetal), repeat=True)
-			elif effect == 'surrounder':
-				self.surround = SurroundBall(spaz, shape="bones")
+        if cl_str in gph.effectCustomers:
+            effect = gph.effectCustomers[cl_str]["effect"]
+            if effect == 'ice':
+                self.snowTimer = bs.Timer(500, bs.WeakCall(self.emitIce), repeat=True)
+            elif effect == 'sweat':
+                self.smokeTimer = bs.Timer(40, bs.WeakCall(self.emitSmoke), repeat=True)
+            elif effect == 'scorch':
+                self.scorchTimer = bs.Timer(500, bs.WeakCall(self.update_Scorch), repeat=True)
+            elif effect == 'glow':
+                self.addLightColor((1, 0.6, 0.4));self.checkDeadTimer = bs.Timer(150, bs.WeakCall(self.checkPlayerifDead), repeat=True)
+            elif effect == 'distortion':
+                self.DistortionTimer = bs.Timer(1000, bs.WeakCall(self.emitDistortion), repeat=True)
+            elif effect == 'slime':
+                self.slimeTimer = bs.Timer(250, bs.WeakCall(self.emitSlime), repeat=True)
+            elif effect == 'metal':
+                self.metalTimer = bs.Timer(500, bs.WeakCall(self.emitMetal), repeat=True)
+            elif effect == 'surrounder':
+                self.surround = SurroundBall(spaz, shape="bones")
                 elif cl_str in gph.surroundingObjectEffect:
-		    self.surround = SurroundBall(spaz, shape="bones")
-		    flag = 1
+            self.surround = SurroundBall(spaz, shape="bones")
+            flag = 1
                 elif cl_str in gph.sparkEffect:
                     self.sparkTimer = bs.Timer(100, bs.WeakCall(self.emitSpark), repeat=True)
-		    flag = 1
+            flag = 1
                 elif cl_str in gph.smokeEffect:
-		    self.smokeTimer = bs.Timer(40, bs.WeakCall(self.emitSmoke), repeat=True)
-		    flag = 1
+            self.smokeTimer = bs.Timer(40, bs.WeakCall(self.emitSmoke), repeat=True)
+            flag = 1
                 elif cl_str in gph.scorchEffect:
-		    self.scorchTimer = bs.Timer(500, bs.WeakCall(self.update_Scorch), repeat=True)
-		    flag = 1
+            self.scorchTimer = bs.Timer(500, bs.WeakCall(self.update_Scorch), repeat=True)
+            flag = 1
                 elif cl_str in gph.distortionEffect:
-		    self.DistortionTimer = bs.Timer(1000, bs.WeakCall(self.emitDistortion), repeat=True)
-		    flag = 1
+            self.DistortionTimer = bs.Timer(1000, bs.WeakCall(self.emitDistortion), repeat=True)
+            flag = 1
                 elif cl_str in gph.glowEffect:
-		    self.addLightColor((1, 0.6, 0.4));self.checkDeadTimer = bs.Timer(150, bs.WeakCall(self.checkPlayerifDead), repeat=True)
-		    flag = 1
+            self.addLightColor((1, 0.6, 0.4));self.checkDeadTimer = bs.Timer(150, bs.WeakCall(self.checkPlayerifDead), repeat=True)
+            flag = 1
                 elif cl_str in gph.iceEffect:
-		    self.snowTimer = bs.Timer(500, bs.WeakCall(self.emitIce), repeat=True)
-		    flag = 1
+            self.snowTimer = bs.Timer(500, bs.WeakCall(self.emitIce), repeat=True)
+            flag = 1
                 elif cl_str in gph.slimeEffect:
-		    self.slimeTimer = bs.Timer(250, bs.WeakCall(self.emitSlime), repeat=True)
-		    flag = 1
+            self.slimeTimer = bs.Timer(250, bs.WeakCall(self.emitSlime), repeat=True)
+            flag = 1
                 elif cl_str in gph.metalEffect:
-		    self.metalTimer = bs.Timer(500, bs.WeakCall(self.emitMetal), repeat=True)
-		    flag = 1
-	
-		if cl_str in gph.customlist:
-			    PermissionEffect(owner = spaz.node,prefix =gph.customlist[cl_str],prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
+            self.metalTimer = bs.Timer(500, bs.WeakCall(self.emitMetal), repeat=True)
+            flag = 1
+    
+        if cl_str in gph.customlist:
+                PermissionEffect(owner = spaz.node,prefix =gph.customlist[cl_str],prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
                 elif cl_str in gph.customtagHashes  or cl_str in gph.topperslist:
-			    tag = getTag(1)
-			    if tag == '0': tag = u'\ue047M3mBeR\ue047'
-			    PermissionEffect(owner = spaz.node,prefix = tag,prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
+                tag = getTag(1)
+                if tag == '0': tag = u'\ue047M3mBeR\ue047'
+                PermissionEffect(owner = spaz.node,prefix = tag,prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
                 elif cl_str in gph.ownerHashes:
-			    tag = getTag(1)
-			    if tag == '0': tag = u'\ue048O|W|N|E|R\ue048'
-			    PermissionEffect(owner = spaz.node,prefix = tag,prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
+                tag = getTag(1)
+                if tag == '0': tag = u'\ue048O|W|N|E|R\ue048'
+                PermissionEffect(owner = spaz.node,prefix = tag,prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
                 Phrasess(owner = spaz.node, custom=settings.tagOwnerPhrasses)
                 elif cl_str in gph.adminHashes:
-			    tag = getTag(1)
-			    if tag == '0': tag = u'\ue04cA.D.M.I.N\ue04c'
-			    PermissionEffect(owner = spaz.node,prefix = tag,prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
+                tag = getTag(1)
+                if tag == '0': tag = u'\ue04cA.D.M.I.N\ue04c'
+                PermissionEffect(owner = spaz.node,prefix = tag,prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
                 Phrasess(owner = spaz.node, custom=settings.tagAdminPhrasses)
-                elif cl_str in gph.vipHashes:	
-			    tag = getTag(1)
-			    if tag == '0': tag = u'[V.I.P+]'
-			    PermissionEffect(owner = spaz.node,prefix = tag,prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
+                elif cl_str in gph.vipHashes:   
+                tag = getTag(1)
+                if tag == '0': tag = u'[V.I.P+]'
+                PermissionEffect(owner = spaz.node,prefix = tag,prefixAnim = {0: (1,0,0), 250: (0,1,0),250*2:(0,0,1),250*3:(1,0,0)})
         except:
                 pass
 
-	if settings.enableStats:
+    if settings.enableStats:
 
-	    if os.path.exists(bs.getEnvironment()['userScriptsDirectory'] + "/stats.json"):
-		f = open(bs.getEnvironment()['userScriptsDirectory'] + "/stats.json", "r")
-		#pats = json.loads(f.read())
-		aid = str(self.sourcePlayer.get_account_id())
-		pats = {}
-		try:
-		    pats = json.loads(f.read())	
-		except Exception:
-		    bs.printException()
-		if aid in pats:
-		    rank = pats[aid]["rank"]
-		    kill = pats[aid]["kills"]
-		    death = pats[aid]["deaths"]
-		    if int(rank) < 6:
-			#dragon='' crown= fireball=	ninja= skull=	
-			if rank == '1':
-				icon = '' #crown
-				if flag == 0 and settings.enableTop5effects: self.neroLightTimer = bs.Timer(500, bs.WeakCall(self.neonLightSwitch,("shine" in self.Decorations),("extra_Highlight" in self.Decorations),("extra_NameColor" in self.Decorations)),repeat = True)
-			elif rank == '2': 
-				icon = '' #dragon
-				if flag ==0 and settings.enableTop5effects: self.smokeTimer = bs.Timer(40, bs.WeakCall(self.emitSmoke), repeat=True)
-			elif rank == '3': 
-				icon ='' #helmet'
-				if flag == 0 and settings.enableTop5effects: self.addLightColor((1, 0.6, 0.4));self.scorchTimer = bs.Timer(500, bs.WeakCall(self.update_Scorch), repeat=True)
-			elif rank == '4': 
-				icon = '' #fireball
-				if flag ==0 and settings.enableTop5effects: self.metalTimer = bs.Timer(500, bs.WeakCall(self.emitMetal), repeat=True)
+        if os.path.exists(bs.getEnvironment()['userScriptsDirectory'] + "/stats.json"):
+        f = open(bs.getEnvironment()['userScriptsDirectory'] + "/stats.json", "r")
+        #pats = json.loads(f.read())
+        aid = str(self.sourcePlayer.get_account_id())
+        pats = {}
+        try:
+            pats = json.loads(f.read()) 
+        except Exception:
+            bs.printException()
+        if aid in pats:
+            rank = pats[aid]["rank"]
+            kill = pats[aid]["kills"]
+            death = pats[aid]["deaths"]
+            if int(rank) < 6:
+            #dragon='' crown= fireball=  ninja= skull= 
+            if rank == '1':
+                icon = '' #crown
+                if flag == 0 and settings.enableTop5effects: self.neroLightTimer = bs.Timer(500, bs.WeakCall(self.neonLightSwitch,("shine" in self.Decorations),("extra_Highlight" in self.Decorations),("extra_NameColor" in self.Decorations)),repeat = True)
+            elif rank == '2': 
+                icon = '' #dragon
+                if flag ==0 and settings.enableTop5effects: self.smokeTimer = bs.Timer(40, bs.WeakCall(self.emitSmoke), repeat=True)
+            elif rank == '3': 
+                icon ='' #helmet'
+                if flag == 0 and settings.enableTop5effects: self.addLightColor((1, 0.6, 0.4));self.scorchTimer = bs.Timer(500, bs.WeakCall(self.update_Scorch), repeat=True)
+            elif rank == '4': 
+                icon = '' #fireball
+                if flag ==0 and settings.enableTop5effects: self.metalTimer = bs.Timer(500, bs.WeakCall(self.emitMetal), repeat=True)
 
-			else: 
-				icon = '' #bull head  
-				if flag==0 and settings.enableTop5effects: self.addLightColor((1, 0.6, 0.4));self.checkDeadTimer = bs.Timer(150, bs.WeakCall(self.checkPlayerifDead), repeat=True)
-			display = icon + '#' + str(rank) +icon
-		        PermissionEffect(owner = spaz.node,prefix = display,prefixAnim = {0: (1,1,1)},type = 2)
-		    else:
-			display = '#' + str(rank)
-		        PermissionEffect(owner=spaz.node, prefix=u'«\U000026C4»|' + str(pats[str(player.get_account_id())]["rank"]),
-		                     prefixAnim={0: (1,1,1)},type=2)
-	
+            else: 
+                icon = '' #bull head  
+                if flag==0 and settings.enableTop5effects: self.addLightColor((1, 0.6, 0.4));self.checkDeadTimer = bs.Timer(150, bs.WeakCall(self.checkPlayerifDead), repeat=True)
+            display = icon + '#' + str(rank) +icon
+                PermissionEffect(owner = spaz.node,prefix = display,prefixAnim = {0: (1,1,1)},type = 2)
+            else:
+            display = '#' + str(rank)
+                PermissionEffect(owner=spaz.node, prefix=u'«\U000026C4»|' + str(pats[str(player.get_account_id())]["rank"]),
+                             prefixAnim={0: (1,1,1)},type=2)
+    
 
         if "smoke" and "spark" and "snowDrops" and "slimeDrops" and "metalDrops" and "Distortion" and "neroLight" and "scorch" and "HealTimer" and "KamikazeCheck" not in self.Decorations:
             #self.checkDeadTimer = bs.Timer(150, bs.WeakCall(self.checkPlayerifDead), repeat=True)
