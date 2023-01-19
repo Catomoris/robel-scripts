@@ -1,0 +1,26 @@
+{
+    "admins_prefix": true, 
+    "auto-update": false, 
+    "chat_commands_enabled": true, 
+    "disable_powerups": false, 
+    "in_menu_author_name": true, 
+    "lobby_connect_menu": false, 
+    "party_search_log": false, 
+    "powerup_lighting": true, 
+    "show_game_name": true, 
+    "timer_before_the_bomb_explode": true, 
+    "timer_the_disappearance_of_the_effect": true, 
+    "timer_the_disappearance_of_the_powerup": true, 
+    "admins": [], 
+    "banned": [
+        "\ue030REVELADOR1", 
+        "\ue030CHAM460", 
+        "\ue030AFX767", 
+        "\ue030iiRcade724"
+    ], 
+    "exclude_powerups": [], 
+    "internet_tab_search_text": "", 
+    "prefixes": {}, 
+    "skins": {}, 
+    "vips": []
+}

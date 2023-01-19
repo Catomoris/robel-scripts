@@ -1,0 +1,260 @@
+{
+ "Auto Balance Teams": true, 
+ "Enable Telnet": true, 
+ "Free-for-All Playlist Randomize": true, 
+ "Show Tutorial": false, 
+ "Signed In Last Session": false, 
+ "Team Tournament Playlist Randomize": true, 
+ "lc14": 1, 
+ "lc14146": 1, 
+ "lc14173": 1, 
+ "lc14292": 1, 
+ "lc14c": 1, 
+ "Achievements": {
+  "Boom Goes the Dynamite": {
+   "Complete": false
+  }, 
+  "Boxer": {
+   "Complete": false
+  }, 
+  "Dual Wielding": {
+   "Complete": false
+  }, 
+  "Flawless Victory": {
+   "Complete": false
+  }, 
+  "Free Loader": {
+   "Complete": true
+  }, 
+  "Gold Miner": {
+   "Complete": false
+  }, 
+  "Got the Moves": {
+   "Complete": false
+  }, 
+  "In Control": {
+   "Complete": false
+  }, 
+  "Last Stand God": {
+   "Complete": false
+  }, 
+  "Last Stand Master": {
+   "Complete": false
+  }, 
+  "Last Stand Wizard": {
+   "Complete": false
+  }, 
+  "Mine Games": {
+   "Complete": false
+  }, 
+  "Off You Go Then": {
+   "Complete": false
+  }, 
+  "Onslaught God": {
+   "Complete": false
+  }, 
+  "Onslaught Master": {
+   "Complete": false
+  }, 
+  "Onslaught Training Victory": {
+   "Complete": false
+  }, 
+  "Onslaught Wizard": {
+   "Complete": false
+  }, 
+  "Precision Bombing": {
+   "Complete": false
+  }, 
+  "Pro Boxer": {
+   "Complete": false
+  }, 
+  "Pro Football Shutout": {
+   "Complete": false
+  }, 
+  "Pro Football Victory": {
+   "Complete": false
+  }, 
+  "Pro Onslaught Victory": {
+   "Complete": false
+  }, 
+  "Pro Runaround Victory": {
+   "Complete": false
+  }, 
+  "Rookie Football Shutout": {
+   "Complete": false
+  }, 
+  "Rookie Football Victory": {
+   "Complete": false
+  }, 
+  "Rookie Onslaught Victory": {
+   "Complete": false
+  }, 
+  "Runaround God": {
+   "Complete": false
+  }, 
+  "Runaround Master": {
+   "Complete": false
+  }, 
+  "Runaround Wizard": {
+   "Complete": false
+  }, 
+  "Sharing is Caring": {
+   "Complete": false
+  }, 
+  "Stayin' Alive": {
+   "Complete": false
+  }, 
+  "Super Mega Punch": {
+   "Complete": false
+  }, 
+  "Super Punch": {
+   "Complete": false
+  }, 
+  "TNT Terror": {
+   "Complete": false
+  }, 
+  "Team Player": {
+   "Complete": false
+  }, 
+  "The Great Wall": {
+   "Complete": false
+  }, 
+  "The Wall": {
+   "Complete": false
+  }, 
+  "Uber Football Shutout": {
+   "Complete": false
+  }, 
+  "Uber Football Victory": {
+   "Complete": false
+  }, 
+  "Uber Onslaught Victory": {
+   "Complete": false
+  }, 
+  "Uber Runaround Victory": {
+   "Complete": false
+  }
+ }, 
+ "Auto Account State": "Server", 
+ "Campaigns": {}, 
+ "Default Player Profiles": {
+  "Client Input Device #1": "_random", 
+  "Client Input Device #10": "UNION SOBIETICA", 
+  "Client Input Device #11": "\u2667M@RK N!NJ@G\u25cb2.0", 
+  "Client Input Device #12": "__account__", 
+  "Client Input Device #13": "el pajas locas", 
+  "Client Input Device #14": "ALEXZ", 
+  "Client Input Device #15": "\u13c2\u13cb\u01fa\u13b4\u271e", 
+  "Client Input Device #16": "__account__", 
+  "Client Input Device #17": "__account__", 
+  "Client Input Device #18": "\u2728Thunderkiller\u2122\u26a1", 
+  "Client Input Device #19": "__account__", 
+  "Client Input Device #2": "SPAZ", 
+  "Client Input Device #20": "\"\u2301Th\u0365u\u0363n\u036bder\u2301", 
+  "Client Input Device #21": "_random", 
+  "Client Input Device #22": "__account__", 
+  "Client Input Device #28": "__account__", 
+  "Client Input Device #3": "\u2af7\u0f04\u2123\u026a\u1d18\u1b44\u2af8", 
+  "Client Input Device #31": "_random", 
+  "Client Input Device #32": "Frequents", 
+  "Client Input Device #33": "__account__", 
+  "Client Input Device #35": "__account__", 
+  "Client Input Device #39": "_random", 
+  "Client Input Device #4": "\\_(\u2022_\u2022)_/", 
+  "Client Input Device #40": "Magoogan", 
+  "Client Input Device #41": "\"\u0633\u064a\u0641", 
+  "Client Input Device #42": "__account__", 
+  "Client Input Device #47": "__account__", 
+  "Client Input Device #49": "\"\ud835\udd4b\ud835\udd5a\ud835\udd65\ud835\udd52\ud835\udd5f\"", 
+  "Client Input Device #5": "William  afton", 
+  "Client Input Device #51": "__account__", 
+  "Client Input Device #59": "\"\ud835\udd4b\ud835\udd5a\ud835\udd65\ud835\udd52\ud835\udd5f\"", 
+  "Client Input Device #6": "\"\u2af7\u0f04\u2123\u026a\u1d18\u1b44\u2af8\"", 
+  "Client Input Device #63": "__account__", 
+  "Client Input Device #65": "\"\u06dd\u1d2e\u1d2c\ua537\u13aa\ud835\udc0d\u13b6\u13ac\u13de\u2570\u203f\u256f", 
+  "Client Input Device #7": "xdxdxdxd\ud83d\ude0e\ud83d\ude0e\ud83d\ude0e\ud83d\udc80", 
+  "Client Input Device #8": "Barbossa\ud83c\udff4\u200d\u2620\ufe0f", 
+  "Client Input Device #85": "__account__", 
+  "Client Input Device #9": "Pedro magias"
+ }, 
+ "Free-for-All Playlist Selection": "smash", 
+ "Free-for-All Playlists": {
+  "Solo \u00c9pico": [
+   {
+    "settings": {
+     "Epic Mode": 1, 
+     "Lives Per Player": 1, 
+     "Respawn Times": 1.0, 
+     "Time Limit": 120, 
+     "map": "Tip Top"
+    }, 
+    "type": "bsElimination.EliminationGame"
+   }
+  ], 
+  "smash": [
+   {
+    "settings": {
+     "Epic Mode": true, 
+     "Lives (0 = Unlimited)": 5, 
+     "Time Limit": 120, 
+     "map": "Rampage"
+    }, 
+    "type": "smash.SuperSmash"
+   }, 
+   {
+    "settings": {
+     "Epic Mode": true, 
+     "Lives (0 = Unlimited)": 5, 
+     "Time Limit": 120, 
+     "map": "Football Stadium"
+    }, 
+    "type": "smash.SuperSmash"
+   }, 
+   {
+    "settings": {
+     "Epic Mode": true, 
+     "Lives (0 = Unlimited)": 5, 
+     "Time Limit": 120, 
+     "map": "Courtyard"
+    }, 
+    "type": "smash.SuperSmash"
+   }, 
+   {
+    "settings": {
+     "Epic Mode": true, 
+     "Lives (0 = Unlimited)": 5, 
+     "Time Limit": 120, 
+     "map": "The Pad"
+    }, 
+    "type": "smash.SuperSmash"
+   }, 
+   {
+    "settings": {
+     "Epic Mode": true, 
+     "Lives (0 = Unlimited)": 5, 
+     "Time Limit": 120, 
+     "map": "Step Right Up"
+    }, 
+    "type": "smash.SuperSmash"
+   }, 
+   {
+    "settings": {
+     "Epic Mode": true, 
+     "Lives (0 = Unlimited)": 5, 
+     "Time Limit": 120, 
+     "map": "Doom Shroom"
+    }, 
+    "type": "smash.SuperSmash"
+   }
+  ]
+ }, 
+ "Lang": "English", 
+ "Local Account Name": "Server10305858", 
+ "Player Profiles": {}, 
+ "Port": 43210, 
+ "Team Tournament Playlist Selection": "__default__", 
+ "Team Tournament Playlists": {}, 
+ "Telnet Password": "broody", 
+ "Telnet Port": 43210, 
+ "launchCount": 58
+}
