@@ -1935,6 +1935,8 @@ class ScoreScreenActivity(Activity):
 
     def onBegin(self, customContinueMessage=None):
         Activity.onBegin(self)
+        import mystats
+        mystats.update(self.scoreSet)
         # pop up a 'press any button to continue' statement after our
         # min-view-time show a 'press any button to continue..'
         # thing after a bit..
